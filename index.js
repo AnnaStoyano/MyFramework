@@ -135,15 +135,15 @@ function displayCharacterInfo(character) {
 }
 
 function DisplayInfo() {
-  function closeInfo(item) {
+  window.closeInfo = function closeInfo(item) {
     item.closest('#moreInfo').style.display = 'none';
-  }
+  };
 
   return `<div id='moreInfo' class='${style.moreInfo}'>
             <div aria-label='' class='top ${style.top}'></div>
             <p class='name ${style.characterName}'></p>
             <p class='${style.characterInfo} moreInfo'></p>
-            <button onclick="(${closeInfo})(this)">x</button>
+            <button onclick="(${window.closeInfo})(this)">x</button>
     </div>`;
 }
 
