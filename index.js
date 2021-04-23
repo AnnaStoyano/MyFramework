@@ -28,6 +28,7 @@ function App() {
 function renderApp() {
   const appRoot = document.querySelector('#app-root');
   appRoot.innerHTML = App();
+  AddEventCharacter();
 }
 
 renderApp();
@@ -79,8 +80,9 @@ function DisplayCharacters() {
   window.currentState.currentDisplayCharacter = displayList;
   const charactersListItems = displayList
     .map(
-      character => `<li class='${style.displayCharactersItem}' aria-label="${character.name}"
-                                                                onclick="(${displayCharacterInfo})(this);">
+      character => `<li class='characterItem ${style.displayCharactersItem}' aria-label="${
+        character.name
+      }">
                                                                   <div class='${style.top}'>
                                                                     <img src='${getSecurityURL(
                                                                       character.image,
@@ -105,6 +107,14 @@ function filterCharactersByWork() {
   } else {
     return characters;
   }
+}
+
+function AddEventCharacter() {
+  const characterList = document.querySelector('#displayCharacters ul');
+  characterList.addEventListener('click', function ({ target }) {
+    const characterTarget = target.closest('.characterItem');
+    displayCharacterInfo(characterTarget);
+  });
 }
 
 function displayCharacterInfo(character) {
