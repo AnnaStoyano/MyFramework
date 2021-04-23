@@ -134,16 +134,23 @@ function displayCharacterInfo(character) {
   display.style = 'display: block';
 }
 
-function DisplayInfo() {
-  window.closeInfo = function closeInfo(item) {
-    item.closest('#moreInfo').style.display = 'none';
-  };
+// function Search() {
+//     return `<label for='search'>Enter name: </label><input type='text' id='search'
+//               value='${window.currentState.currentSearch}' onchange='(${searchByName})(this.value);'>`;
+//   }
 
+function closeInfo(item) {
+  item.closest('#moreInfo').style.display = 'none';
+}
+
+window.closeInfo = closeInfo;
+
+function DisplayInfo() {
   return `<div id='moreInfo' class='${style.moreInfo}'>
             <div aria-label='' class='top ${style.top}'></div>
             <p class='name ${style.characterName}'></p>
             <p class='${style.characterInfo} moreInfo'></p>
-            <button onclick="(${window.closeInfo})(this)">x</button>
+            <button onclick='(()=>window.closeInfo(this))()'>x</button>
     </div>`;
 }
 
