@@ -112,7 +112,9 @@ function AddEventCharacter() {
   const characterList = document.querySelector('#displayCharacters ul');
   characterList.addEventListener('click', function ({ target }) {
     const characterTarget = target.closest('.characterItem');
-    displayCharacterInfo(characterTarget);
+    if (characterTarget) {
+      displayCharacterInfo(characterTarget);
+    }
   });
 }
 
@@ -134,7 +136,7 @@ function displayCharacterInfo(character) {
 
 function DisplayInfo() {
   function closeInfo(item) {
-    item.parentElement.style.display = 'none';
+    item.closest('#moreInfo').style.display = 'none';
   }
 
   return `<div id='moreInfo' class='${style.moreInfo}'>
