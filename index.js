@@ -54,15 +54,14 @@ function SwitchCharacters() {
       switchItem => `<input type='radio' name='switchDisplay' value='${switchItem.value}' id='${
         switchItem.id
       }'
-                                                    ${
-                                                      window.currentState.currentCharacters ==
-                                                      switchItem.value
-                                                        ? 'checked'
-                                                        : ''
-                                                    } class='${style.switchInput}'>
+    ${window.currentState.currentCharacters == switchItem.value ? 'checked' : ''} class='${
+        style.switchInput
+      }'>
                                                     <label for='${switchItem.id}' class='${
         style.switchLabel
-      }'>${switchItem.value}</label>`,
+      }'>
+                                                    ${switchItem.value}
+                                                    </label>`,
     )
     .join('');
   return `<div id='switch-wrapper' class='${style.switchWrapper}' onclick="(${switchCharactersRadio})(event);"> ${switchHTML} </div>`;
