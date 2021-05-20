@@ -9,6 +9,10 @@ ul {
   list-style: none;
 }
 
+.searchWrapper {
+  margin: 20px;
+}
+
 .switchWrapper {
   width: 100%;
   justify-content: space-around;
@@ -63,25 +67,25 @@ ul {
   justify-content: center;
 }
 
-.displayCharactersItem {
+.displayCharactersCard {
   max-width: 330px;
   width: 30%;
   margin: 20px 50px;
 }
 
-.displayCharactersItem .top {
+.displayCharactersCard .top {
   width: 100%;
   height: 280px;
   display: flex;
   justify-content: center;
 }
 
-.displayCharactersItem img,
+.displayCharactersCard img,
 .moreInfo .top img {
   height: inherit;
 }
 
-.displayCharactersItem p {
+.displayCharactersCard p {
   margin-top: 10px;
   font-size: 22px;
   text-align: center;
@@ -90,15 +94,16 @@ ul {
 .moreInfo {
   top: 10%;
   left: calc(50% - 280px / 2);
-  display: none;
   min-width: 280px;
   position: fixed;
-  padding: 50px;
+  padding: 50px 50px 20px 50px;
   background-color: rgb(231, 203, 166);
 }
 
 .moreInfo .top {
-  height: 320px;
+  height: 280px;
+  width: fit-content;
+  margin: 0 auto;
 }
 
 .characterName {
