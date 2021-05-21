@@ -1,3 +1,5 @@
+import renderApp from '../framework/render';
+
 export function validateAndLoadData() {
   const API_URL = 'https://hp-api.herokuapp.com/api/characters';
   if (window.currentState.characters.length <= 0) {
@@ -13,8 +15,7 @@ export function validateAndLoadData() {
 export function performDisplayCharacters() {
   window.currentState.isDataLoading = true;
   window.currentState.error = null;
-  window
-    .validateAndLoadData()
+  validateAndLoadData()
     .then(({ err, data }) => {
       window.currentState.isDataLoading = false;
 
@@ -22,7 +23,7 @@ export function performDisplayCharacters() {
         window.currentState.error = err;
       } else if (data) {
         window.currentState.characters = data;
-        window.renderApp();
+        renderApp();
       }
     })
     .catch(() => {

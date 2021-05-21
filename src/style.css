@@ -9,19 +9,19 @@ ul {
   list-style: none;
 }
 
-.searchWrapper {
+/* .searchWrapper {
   margin: 20px;
-}
+} */
 
-.switchWrapper {
+/* .switchWrapper {
   width: 100%;
   justify-content: space-around;
   display: flex;
   flex-wrap: wrap;
   margin: 0px auto;
-}
+} */
 
-.switchInput {
+/* .switchInput {
   position: absolute;
   width: 0px;
   height: 0px;
@@ -59,15 +59,15 @@ ul {
 .switchLabel:active,
 .switchLabel:focus {
   background-color: transparent;
-}
+} */
 
-.displayCharacters ul {
+/* .displayCharacters ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-}
+} */
 
-.displayCharactersCard {
+/* .displayCharactersCard {
   max-width: 330px;
   width: 30%;
   margin: 20px 50px;
@@ -89,9 +89,9 @@ ul {
   margin-top: 10px;
   font-size: 22px;
   text-align: center;
-}
+} */
 
-.moreInfo {
+/* .moreInfo {
   top: 10%;
   left: calc(50% - 280px / 2);
   min-width: 280px;
@@ -121,9 +121,9 @@ ul {
   background-color: transparent;
   border: none;
   padding: 10px;
-}
+} */
 
-@media screen and (max-width: 500px) {
+/* @media screen and (max-width: 500px) {
   .switchLabel {
     width: 100%;
   }
@@ -131,4 +131,4 @@ ul {
   .moreInfo {
     padding: 30px;
   }
-}
+} */

@@ -1,15 +1,17 @@
+import renderApp from '../framework/render';
+
 export function switchCharactersRadio(event) {
   const switchTarget = event.target.previousElementSibling;
   if (switchTarget && switchTarget.value != window.currentState.currentCharacters) {
     window.currentState.currentCharacters = switchTarget.value;
-    window.renderApp();
+    renderApp();
   }
 }
 
 export function searchByName(characterName) {
   if (characterName != window.currentState.currentSearch) {
     window.currentState.currentSearch = characterName.trim().toLowerCase();
-    window.renderApp();
+    renderApp();
   }
 }
 
@@ -25,5 +27,5 @@ export function filterCharactersByWork() {
 
 export function closeModal() {
   window.currentState.activeCard = null;
-  window.renderApp();
+  renderApp();
 }

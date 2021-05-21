@@ -1,7 +1,7 @@
 /** @jsx createElement */
 /** @jsxFrag createFragment */
-
-import style from '../style.css';
+import { createElement, createFragment } from '../../framework/element';
+import style from './SwitchItem.css';
 
 export default function SwitchItem(value, id) {
   return (
@@ -11,13 +11,12 @@ export default function SwitchItem(value, id) {
         name="switchDisplay"
         value={value}
         id={id}
-        {...(window.currentState.currentCharacters == value ? 'checked' : '')}
+        checked={window.currentState.currentCharacters == value ? true : false}
         class={style.switchInput}
       />
-      <label For={id} class="${style.switchLabel}">
+      <label For={id} class={style.switchLabel}>
         {value}
       </label>
-      ;
     </>
   );
 }

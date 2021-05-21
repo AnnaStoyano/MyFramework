@@ -1,0 +1,7 @@
+.switchWrapper {
+  width: 100%;
+  justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0px auto;
+}

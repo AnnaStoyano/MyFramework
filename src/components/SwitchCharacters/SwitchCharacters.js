@@ -1,8 +1,9 @@
 /** @jsx createElement */
 /** @jsxFrag createFragment */
-
-import style from '../style.css';
-import SwitchItem from './SwitchItem';
+import { createElement, createFragment } from '../../framework/element';
+import { switchCharactersRadio } from '../../data/helper';
+import style from './SwitchCharacters.css';
+import SwitchItem from '../SwitchItem';
 
 export default function SwitchCharacters() {
   const switches = [
@@ -23,11 +24,7 @@ export default function SwitchCharacters() {
   const switchesDOM = switches.map(switchItem => SwitchItem(switchItem.value, switchItem.id));
 
   return (
-    <div
-      id="switch-wrapper"
-      class={style.switchWrapper}
-      onclick={e => window.switchCharactersRadio(e)}
-    >
+    <div id="switch-wrapper" class={style.switchWrapper} onclick={e => switchCharactersRadio(e)}>
       {' '}
       {switchesDOM}{' '}
     </div>
