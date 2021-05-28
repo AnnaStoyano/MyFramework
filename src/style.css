@@ -1,0 +1,134 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 18px;
+}
+
+ul {
+  list-style: none;
+}
+
+/* .searchWrapper {
+  margin: 20px;
+} */
+
+/* .switchWrapper {
+  width: 100%;
+  justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0px auto;
+} */
+
+/* .switchInput {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  top: -100%;
+  left: -200%;
+  appearance: none;
+  -moz-appearance: none;
+}
+
+.switchLabel {
+  width: 33%;
+  padding: 20px;
+  text-align: center;
+  transition: 0.4s;
+  text-transform: uppercase;
+}
+
+.switchLabel:nth-child(2) {
+  background-color: rgb(238, 114, 13);
+  border: 2px solid rgb(238, 114, 13);
+}
+
+.switchLabel:nth-child(4) {
+  background-color: rgb(13, 238, 13);
+  border: 2px solid rgb(13, 238, 13);
+}
+
+.switchLabel:last-child {
+  background-color: rgb(13, 238, 200);
+  border: 2px solid rgb(13, 238, 200);
+}
+
+.switchInput:checked + .switchLabel,
+.switchLabel:hover,
+.switchLabel:active,
+.switchLabel:focus {
+  background-color: transparent;
+} */
+
+/* .displayCharacters ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+} */
+
+/* .displayCharactersCard {
+  max-width: 330px;
+  width: 30%;
+  margin: 20px 50px;
+}
+
+.displayCharactersCard .top {
+  width: 100%;
+  height: 280px;
+  display: flex;
+  justify-content: center;
+}
+
+.displayCharactersCard img,
+.moreInfo .top img {
+  height: inherit;
+}
+
+.displayCharactersCard p {
+  margin-top: 10px;
+  font-size: 22px;
+  text-align: center;
+} */
+
+/* .moreInfo {
+  top: 10%;
+  left: calc(50% - 280px / 2);
+  min-width: 280px;
+  position: fixed;
+  padding: 50px 50px 20px 50px;
+  background-color: rgb(231, 203, 166);
+}
+
+.moreInfo .top {
+  height: 280px;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.characterName {
+  font-size: 20px;
+  text-align: center;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+.moreInfo button {
+  position: absolute;
+  top: 7px;
+  left: 88%;
+  font-size: 20px;
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+} */
+
+/* @media screen and (max-width: 500px) {
+  .switchLabel {
+    width: 100%;
+  }
+
+  .moreInfo {
+    padding: 30px;
+  }
+} */
