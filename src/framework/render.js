@@ -3,15 +3,6 @@
 import { createElement } from './element';
 import { current } from './hooks';
 
-// let Component, Target;
-
-// export default function renderApp(componentFunction = null, targetElement = null) {
-//   if (componentFunction) Component = componentFunction;
-//   if (targetElement) Target = targetElement;
-//   Target.innerHTML = '';
-//   Target.appendChild(<Component />);
-// }
-
 /**
  * Renders a component and attaches it to the target DOM element
  * @param Component - function

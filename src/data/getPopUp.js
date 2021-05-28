@@ -1,4 +1,4 @@
-export default function displayPopUp(target, currentDisplayCharacters) {
+export default function getPopUp(target, currentDisplayCharacters) {
   const targetCard = target.closest('div[aria-label]');
   if (targetCard) {
     return currentDisplayCharacters.find(

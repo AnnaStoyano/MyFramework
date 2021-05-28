@@ -25,7 +25,7 @@ export default function App() {
         characters={characters}
         currentCharacters={currentCharacters}
       />
-      {activeCard ? <PopUp {...activeCard} /> : null}
+      {activeCard ? <PopUp {...activeCard} setActive={setActiveCard} /> : null}
     </>
   );
 }

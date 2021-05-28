@@ -1,7 +1,6 @@
 /** @jsx createElement */
 /** @jsxFrag createFragment */
-import { createElement, createFragment } from '../../framework/element';
-import { searchByName } from '../../data/helper';
+import { createElement, createFragment } from '../../framework';
 import style from './SearchByName.css';
 
 export default function Search({ currentSearch, onSearch }) {

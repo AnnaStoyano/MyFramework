@@ -1,7 +1,6 @@
 /** @jsx createElement */
 /** @jsxFrag createFragment */
-import { createElement, createFragment } from '../../framework/element';
-import { closeModal } from '../../data/helper';
+import { createElement, createFragment } from '../../framework';
 import style from './PopUp.css';
 import { getSecurityURL } from '../../utils';
 
@@ -15,6 +14,7 @@ export default function PopUp({
   ancestry,
   actor,
   alive,
+  setActive,
 }) {
   return (
     <div id="moreInfo" class={style.moreInfo}>
@@ -31,7 +31,7 @@ export default function PopUp({
         <p>Alive: {alive ? '+' : '-'}</p>
         <p>Actor: {actor}</p>
       </div>
-      <button onclick={() => closeModal()}>x</button>
+      <button onclick={() => setActive(null)}>x</button>
     </div>
   );
 }

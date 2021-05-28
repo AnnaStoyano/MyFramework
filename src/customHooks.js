@@ -7,16 +7,18 @@ export const useCharacters = () => {
   const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
-    validateAndLoadData()
-      .then(data => {
-        const { message, code } = data;
-        if (code !== '200' && message) throw Error(message);
-        setError(null);
-        setCharacters(data);
-      })
-      .catch(setError)
-      .finally(() => setIsLoading(false));
-  }, [characters]);
+    if (characters.length <= 0) {
+      validateAndLoadData()
+        .then(data => {
+          const { message, code } = data;
+          if (code !== '200' && message) throw Error(message);
+          setError(null);
+          setCharacters(data.data);
+        })
+        .catch(setError)
+        .finally(() => setIsLoading(false));
+    }
+  }, []);
 
   return {
     isLoading,
@@ -24,22 +26,3 @@ export const useCharacters = () => {
     characters,
   };
 };
-
-// export function performDisplayCharacters() {
-//     window.currentState.isDataLoading = true;
-//     window.currentState.error = null;
-//     validateAndLoadData()
-//       .then(({ err, data }) => {
-//         window.currentState.isDataLoading = false;
-
-//         if (err) {
-//           window.currentState.error = err;
-//         } else if (data) {
-//           window.currentState.characters = data;
-//           renderApp();
-//         }
-//       })
-//       .catch(() => {
-//         window.currentState.error = 'ERROR';
-//       });
-//   }

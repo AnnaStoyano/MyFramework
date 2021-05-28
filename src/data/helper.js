@@ -1,31 +1,17 @@
-import renderApp from '../framework/render';
+export function filterCharactersByWork(characters, currentCharacters) {
+  if (currentCharacters == 'staff') {
+    return characters.filter(character => character.hogwartsStaff == true);
+  } else if (currentCharacters == 'students') {
+    return characters.filter(character => character.hogwartsStaff == false);
+  } else {
+    return characters;
+  }
+}
 
-// export function switchCharactersRadio(event) {
-//   const switchTarget = event.target.previousElementSibling;
-//   if (switchTarget && switchTarget.value != window.currentState.currentCharacters) {
-//     window.currentState.currentCharacters = switchTarget.value;
-//     renderApp();
-//   }
-// }
-
-// export function searchByName(characterName) {
-//   if (characterName != window.currentState.currentSearch) {
-//     window.currentState.currentSearch = characterName.trim().toLowerCase();
-//     renderApp();
-//   }
-// }
-
-// export function filterCharactersByWork() {
-//   if (window.currentState.currentCharacters == 'staff') {
-//     return window.currentState.characters.filter(character => character.hogwartsStaff == true);
-//   } else if (window.currentState.currentCharacters == 'students') {
-//     return window.currentState.characters.filter(character => character.hogwartsStaff == false);
-//   } else {
-//     return window.currentState.characters;
-//   }
-// }
-
-export function closeModal() {
-  window.currentState.activeCard = null;
-  renderApp();
+export function switchCharacters(event, currentCharacters) {
+  const switchTarget = event.target.closest('input');
+  if (switchTarget && switchTarget.value != currentCharacters) {
+    return switchTarget.value;
+  }
+  return currentCharacters;
 }
