@@ -1,0 +1,45 @@
+.switchInput {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  top: -100%;
+  left: -200%;
+  appearance: none;
+  -moz-appearance: none;
+}
+
+.switchLabel {
+  width: 33%;
+  padding: 20px;
+  text-align: center;
+  transition: 0.4s;
+  text-transform: uppercase;
+}
+
+.switchLabel:nth-child(2) {
+  background-color: rgb(238, 114, 13);
+  border: 2px solid rgb(238, 114, 13);
+}
+
+.switchLabel:nth-child(4) {
+  background-color: rgb(13, 238, 13);
+  border: 2px solid rgb(13, 238, 13);
+}
+
+.switchLabel:last-child {
+  background-color: rgb(13, 238, 200);
+  border: 2px solid rgb(13, 238, 200);
+}
+
+.switchInput:checked + .switchLabel,
+.switchLabel:hover,
+.switchLabel:active,
+.switchLabel:focus {
+  background-color: transparent;
+}
+
+@media screen and (max-width: 500px) {
+  .switchLabel {
+    width: 100%;
+  }
+}
