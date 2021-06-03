@@ -7,8 +7,15 @@ import { filterCharactersByWork } from '../../data/helper';
 import CharacterCard from '../CharacterCard';
 import style from './CharactersResult.css';
 
-export default function CharactersResult({ isLoading, error, setActiveCard }) {
-  const { characters, currentSearch, currentCharacters } = useAppContext();
+export default function CharactersResult({
+  isLoading,
+  error,
+  setActiveCard,
+  currentSearch,
+  currentCharacters,
+}) {
+  const characters = useAppContext();
+
   const [currentDisplayCharacters, setCurrentDisplayCharacters] = useState([]);
 
   if (isLoading) {

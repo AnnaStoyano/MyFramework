@@ -14,20 +14,21 @@ export default function App() {
   const [currentSearch, setCurrentSearch] = useState('');
   const [currentCharacters, setCurrentCharacters] = useState('all');
 
-  const charactersData = {
-    characters,
-    currentSearch,
-    currentCharacters,
-  };
-
   return (
     <>
       <SwitchCharacters onClick={setCurrentCharacters} currentCharacters={currentCharacters} />
       <SearchByName onSearch={setCurrentSearch} currentSearch={currentSearch} />
-      <AppContext.Provider value={charactersData}>
-        <CharactersResult isLoading={isLoading} error={error} setActiveCard={setActiveCard} />
-        {activeCard ? <PopUp {...activeCard} setActive={setActiveCard} /> : null}
+
+      <AppContext.Provider value={characters}>
+        <CharactersResult
+          isLoading={isLoading}
+          error={error}
+          setActiveCard={setActiveCard}
+          currentCharacters={currentCharacters}
+          currentSearch={currentSearch}
+        />
       </AppContext.Provider>
+      {activeCard ? <PopUp {...activeCard} setActive={setActiveCard} /> : null}
     </>
   );
 }
