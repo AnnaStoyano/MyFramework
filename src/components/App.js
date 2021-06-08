@@ -1,27 +1,26 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useCharacters } from '../customHooks';
-import SwitchCharacters from './SwitchCharacters';
-import SearchByName from './SearchByName';
 import CharactersResult from './CharactersResult';
+import AllFilters from './AllFilters';
 import PopUp from './PopUp';
 
 export default function App() {
   const { error, isLoading, characters } = useCharacters();
   const [activeCard, setActiveCard] = useState(null);
-  const [currentSearch, setCurrentSearch] = useState('');
-  const [currentCharacters, setCurrentCharacters] = useState('all');
+  const [currentDisplayCards, setCurrentDisplayCards] = useState([]);
+
+  useEffect(() => {
+    setCurrentDisplayCards(characters);
+  }, [characters]);
 
   return (
     <>
-      <SwitchCharacters onClick={setCurrentCharacters} currentCharacters={currentCharacters} />
-      <SearchByName onChange={setCurrentSearch} currentSearch={currentSearch} />
+      <AllFilters setCards={setCurrentDisplayCards} characters={characters} />
       <CharactersResult
-        currentSearch={currentSearch}
         isLoading={isLoading}
         error={error}
         setActiveCard={setActiveCard}
-        characters={characters}
-        currentCharacters={currentCharacters}
+        currentCards={currentDisplayCards}
       />
       {activeCard ? <PopUp {...activeCard} setActive={setActiveCard} /> : null}
     </>

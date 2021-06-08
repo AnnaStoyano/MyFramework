@@ -1,17 +1,17 @@
-export function filterCharactersByWork(characters, currentCharacters) {
-  if (currentCharacters == 'staff') {
+export function filterCharactersByWork(characters, currentWork) {
+  if (currentWork == 'staff') {
     return characters.filter(character => character.hogwartsStaff == true);
-  } else if (currentCharacters == 'students') {
+  } else if (currentWork == 'students') {
     return characters.filter(character => character.hogwartsStaff == false);
   } else {
     return characters;
   }
 }
 
-export function switchCharacters(event, currentCharacters) {
+export function switchCharacters(event) {
   const switchTarget = event.target.closest('input');
-  if (switchTarget && switchTarget.value != currentCharacters) {
+  if (switchTarget && switchTarget.value) {
     return switchTarget.value;
   }
-  return currentCharacters;
+  return 'all';
 }

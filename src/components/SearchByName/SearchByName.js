@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import style from './SearchByName.css';
 
-export default function Search({ currentSearch, onChange }) {
+export default function Search({ onChange, currentSearch }) {
   return (
     <div className={style.searchWrapper}>
       <label htmlFor="search">Enter name: </label>
