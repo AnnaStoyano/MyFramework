@@ -1,0 +1,77 @@
+.switchInput {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  top: -100%;
+  left: -200%;
+  appearance: none;
+  -moz-appearance: none;
+}
+
+.switchInput + .switchLabel {
+  display: inline-block;
+  cursor: pointer;
+  padding: 20px;
+  text-align: center;
+  transition: 0.4s;
+  text-transform: uppercase;
+}
+
+.switchInput[name='work'] + .switchLabel {
+  width: 33%;
+}
+
+.switchInput[name='work'] + .switchLabel:nth-child(2) {
+  background-color: rgb(238, 114, 13);
+  border: 2px solid rgb(238, 114, 13);
+}
+
+.switchInput[name='work'] + .switchLabel:nth-child(4) {
+  background-color: rgb(13, 238, 13);
+  border: 2px solid rgb(13, 238, 13);
+}
+
+.switchInput[name='work'] + .switchLabel:last-child {
+  background-color: rgb(13, 238, 200);
+  border: 2px solid rgb(13, 238, 200);
+}
+
+.switchInput[name='gender'] + .switchLabel:nth-child(2) {
+  background-color: rgb(234, 238, 13);
+  border: 2px solid rgb(234, 238, 13);
+}
+
+.switchInput[name='gender'] + .switchLabel:nth-child(4) {
+  background-color: rgb(230, 13, 238);
+  border: 2px solid rgb(230, 13, 238);
+  margin: 0px 5px;
+}
+
+.switchInput[name='gender'] + .switchLabel:last-child {
+  background-color: rgb(13, 223, 238);
+  border: 2px solid rgb(13, 223, 238);
+}
+
+.switchInput[name='age'] + .switchLabel:nth-child(2) {
+  background-color: rgb(238, 13, 227);
+  border: 2px solid rgb(238, 13, 227);
+  margin: 0px 5px;
+}
+
+.switchInput[name='age'] + .switchLabel:last-child {
+  background-color: rgb(238, 133, 13);
+  border: 2px solid rgb(238, 133, 13);
+}
+
+.switchInput:checked + .switchLabel,
+.switchInput + .switchLabel:hover,
+.switchInput + .switchLabel:active,
+.switchInput + .switchLabel:focus {
+  background-color: transparent !important;
+}
+
+@media screen and (max-width: 500px) {
+  .switchInput[name='work'] + .switchLabel {
+    width: 100%;
+  }
+}

@@ -1,0 +1,10 @@
+.ageWrapper {
+  margin-left: 100px;
+}
+
+@media screen and (max-width: 720px) {
+  .ageWrapper {
+    margin-left: 0px;
+    margin-top: 20px;
+  }
+}

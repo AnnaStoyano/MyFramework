@@ -1,0 +1,46 @@
+#showMore {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  top: -100%;
+  left: -200%;
+  appearance: none;
+  -moz-appearance: none;
+}
+
+.filtersWrapper {
+  box-shadow: 0px 5px 8px 0px rgba(34, 60, 80, 0.2);
+  padding: 0px 0px 20px 0px;
+}
+
+.showMoreSorting {
+  display: none;
+}
+
+.sortingWrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 720px) {
+  .sortingWrapper {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .showMoreSorting {
+    display: block;
+    width: 100%;
+    padding: 20px 0px;
+    text-align: center;
+    background-color: violet;
+    margin-bottom: 20px;
+  }
+
+  #showMore:checked + .sortingWrapper {
+    display: flex;
+  }
+}
