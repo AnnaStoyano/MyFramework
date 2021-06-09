@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import style from './SwitchWork.css';
-import { switchCharacters } from '../../data/helper';
+import React from 'react';
+import style from './FilterByWork.css';
+import { switchInputs } from '../../data/helper';
 import SwitchItem from '../SwitchItem';
 
-export default function SwitchWork({ onClick, currentWork }) {
+export default function FilterByWork({ onClick, currentWork }) {
   const switches = [
     {
       id: 'switch-all',
@@ -23,14 +23,15 @@ export default function SwitchWork({ onClick, currentWork }) {
     <div
       id="switch-wrapper"
       className={style.switchWrapper}
-      onClick={e => onClick(switchCharacters(e))}
+      onClick={e => onClick(switchInputs(e, 'all'))}
     >
       {switches.map(switchItem => (
         <SwitchItem
           value={switchItem.value}
           key={switchItem.id}
           id={switchItem.id}
-          currentCharacters={currentWork}
+          current={currentWork}
+          name="work"
         />
       ))}
     </div>

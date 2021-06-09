@@ -8,10 +8,22 @@ export function filterCharactersByWork(characters, currentWork) {
   }
 }
 
-export function switchCharacters(event) {
+export function switchInputs(event, defaultValue) {
   const switchTarget = event.target.closest('input');
   if (switchTarget && switchTarget.value) {
     return switchTarget.value;
   }
-  return 'all';
+  return defaultValue;
+}
+
+export function compareByAge(character1Age, character2Age, currentAge) {
+  if (currentAge === 'ascending') {
+    return character2Age - character1Age;
+  }
+  return character1Age - character2Age;
+}
+
+export function getDatefromString(str) {
+  const [day, month, year] = str.split('-');
+  return new Date(year, month, day);
 }

@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import style from './AllFilters.css';
-import SwitchWork from '../SwitchWork';
+import FilterByWork from '../FilterByWork';
+import { getDatefromString } from '../../data/helper';
 import SearchByName from '../SearchByName';
-import { filterCharactersByWork } from '../../data/helper';
+import SortingByGender from '../SortingByGender';
+import SortingByAge from '../SortingByAge';
+import { filterCharactersByWork, compareByAge } from '../../data/helper';
 
 export default function AllFilters({ setCards, characters }) {
   const [currentWork, setCurrentWork] = useState('all');
   const [currentSearch, setCurrentSearch] = useState('');
+  const [currentGender, setCurrentGender] = useState('all');
+  const [currentAge, setCurrentAge] = useState('');
 
   useEffect(() => {
     setCards(characters);
@@ -14,16 +19,36 @@ export default function AllFilters({ setCards, characters }) {
 
   useEffect(() => {
     setCards(
-      filterCharactersByWork(characters, currentWork).filter(item =>
-        item.name.toLowerCase().startsWith(currentSearch),
-      ),
+      filterCharactersByWork(characters, currentWork)
+        .filter(item => item.name.toLowerCase().startsWith(currentSearch))
+        .filter(item => {
+          if (currentGender === 'all') {
+            return item;
+          }
+          return item.gender === currentGender;
+        })
+        .sort((character1, character2) =>
+          compareByAge(
+            getDatefromString(character1.dateOfBirth).getTime(),
+            getDatefromString(character2.dateOfBirth).getTime(),
+            currentAge,
+          ),
+        ),
     );
-  }, [currentSearch, currentWork]);
+  }, [currentSearch, currentWork, currentGender, currentAge]);
 
   return (
     <div className={style.filtersWrapper}>
-      <SwitchWork onClick={setCurrentWork} currentWork={currentWork} />
+      <FilterByWork onClick={setCurrentWork} currentWork={currentWork} />
       <SearchByName onChange={setCurrentSearch} currentSearch={currentSearch} />
+      <label className={style.showMoreSorting} htmlFor={style.showMore}>
+        Show More Sorting
+      </label>
+      <input type="checkbox" id={style.showMore} />
+      <div className={style.sortingWrapper}>
+        <SortingByGender onClick={setCurrentGender} currentGender={currentGender} />
+        <SortingByAge onClick={setCurrentAge} currentAge={currentAge} />
+      </div>
     </div>
   );
 }

@@ -23,7 +23,7 @@ export default function PopUp({
       <div className={style.characterInfo}>
         <p>Species: {species}</p>
         <p>Gender: {gender}</p>
-        <p>Date of Birth: {dateOfBirth}</p>
+        <p>Date of Birth: {dateOfBirth ? dateOfBirth : '-'}</p>
         <p>House: {house}</p>
         <p>Ancestry: {ancestry}</p>
         <p>Alive: {alive ? '+' : '-'}</p>

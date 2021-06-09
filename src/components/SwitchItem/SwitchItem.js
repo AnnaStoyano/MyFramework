@@ -1,15 +1,15 @@
 import React from 'react';
 import style from './SwitchItem.css';
 
-export default function SwitchItem({ value, id, currentCharacters }) {
+export default function SwitchItem({ value, id, current, name }) {
   return (
     <>
       <input
         type="radio"
-        name="switchDisplay"
+        name={name}
         value={value}
         id={id}
-        defaultChecked={currentCharacters == value ? true : false}
+        defaultChecked={current == value ? true : false}
         className={style.switchInput}
       />
       <label htmlFor={id} className={style.switchLabel}>
