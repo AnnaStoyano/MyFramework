@@ -16,11 +16,7 @@ export default function SortingByAge({ onClick, currentAge }) {
   ];
 
   return (
-    <div
-      id="age-wrapper"
-      className={style.ageWrapper}
-      onClick={e => onClick(switchInputs(e, 'Youngest first'))}
-    >
+    <div id="age-wrapper" className={style.ageWrapper} onClick={e => onClick(switchInputs(e, ''))}>
       {age.map(ageItem => (
         <SwitchItem
           value={ageItem.value}

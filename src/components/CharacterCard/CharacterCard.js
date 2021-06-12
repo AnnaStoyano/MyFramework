@@ -9,7 +9,7 @@ export default function CharacterCard({ name, age, image }) {
         <img src={getSecurityURL(image)} />
       </div>
       <p>{name}</p>
-      <p>{age} years old</p>
+      <p>{age || 'n/a'} years old</p>
     </div>
   );
 }
