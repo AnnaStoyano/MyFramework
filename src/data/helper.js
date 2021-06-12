@@ -17,7 +17,7 @@ export function switchInputs(event, defaultValue) {
 }
 
 export function compareByAge(character1Age, character2Age, currentAge) {
-  if (currentAge === 'ascending') {
+  if (currentAge === 'Youngest first') {
     return character2Age - character1Age;
   }
   return character1Age - character2Age;
