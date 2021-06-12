@@ -17,13 +17,23 @@ export function switchInputs(event, defaultValue) {
 }
 
 export function compareByAge(character1Age, character2Age, currentAge) {
-  if (currentAge === 'ascending') {
-    return character2Age - character1Age;
+  if (currentAge === 'Youngest first') {
+    return character2Age.getTime() - character1Age.getTime();
   }
+
   return character1Age - character2Age;
 }
 
-export function getDatefromString(str) {
-  const [day, month, year] = str.split('-');
-  return new Date(year, month, day);
+export function getDatefromValue(value) {
+  if (typeof value == 'string') {
+    const [day, month, year] = value.split('-');
+    return new Date(year, month, day);
+  } else if (typeof value == 'number') {
+    return new Date(value);
+  }
+}
+
+export function getCharacterAge(str) {
+  const ageDate = new Date(Date.now() - getDatefromValue(str));
+  return ageDate.getFullYear() - 1969;
 }

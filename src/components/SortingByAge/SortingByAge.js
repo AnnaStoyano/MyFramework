@@ -7,20 +7,16 @@ export default function SortingByAge({ onClick, currentAge }) {
   const age = [
     {
       id: 'age-top',
-      value: 'ascending',
+      value: 'Youngest first',
     },
     {
       id: 'age-bottom',
-      value: 'descending',
+      value: 'Oldest first',
     },
   ];
 
   return (
-    <div
-      id="age-wrapper"
-      className={style.ageWrapper}
-      onClick={e => onClick(switchInputs(e, 'top'))}
-    >
+    <div id="age-wrapper" className={style.ageWrapper} onClick={e => onClick(switchInputs(e, ''))}>
       {age.map(ageItem => (
         <SwitchItem
           value={ageItem.value}
