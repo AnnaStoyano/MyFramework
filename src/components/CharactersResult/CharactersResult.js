@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import getPopUp from '../../data/getPopUp';
 import CharacterCard from '../CharacterCard';
 import style from './CharactersResult.css';
+import { getCharacterAge } from '../../data/helper';
 
 export default function CharactersResult({ isLoading, error, currentCards, setActiveCard }) {
   if (isLoading) {
@@ -13,7 +14,12 @@ export default function CharactersResult({ isLoading, error, currentCards, setAc
   }
 
   const charactersListItems = currentCards.map(character => (
-    <CharacterCard key={character.name} name={character.name} image={character.image} />
+    <CharacterCard
+      key={character.name}
+      name={character.name}
+      age={getCharacterAge(character.dateOfBirth)}
+      image={character.image}
+    />
   ));
 
   return (
@@ -22,9 +28,7 @@ export default function CharactersResult({ isLoading, error, currentCards, setAc
       className={style.displayCharacters}
       onClick={e => setActiveCard(getPopUp(e.target, currentCards))}
     >
-      <div>
-        {charactersListItems.length > 0 ? charactersListItems : 'Don`t have the character '}
-      </div>
+      <>{charactersListItems.length > 0 ? charactersListItems : 'Don`t have the character '}</>
     </div>
   );
 }

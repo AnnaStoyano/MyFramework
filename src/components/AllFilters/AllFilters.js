@@ -21,19 +21,19 @@ export default function AllFilters({ setCards, characters }) {
     setCards(
       filterCharactersByWork(characters, currentWork)
         .filter(item => item.name.toLowerCase().startsWith(currentSearch))
+        .sort((character1, character2) =>
+          compareByAge(
+            getDatefromString(character1.dateOfBirth),
+            getDatefromString(character2.dateOfBirth),
+            currentAge,
+          ),
+        )
         .filter(item => {
           if (currentGender === 'all') {
             return item;
           }
           return item.gender === currentGender;
-        })
-        .sort((character1, character2) =>
-          compareByAge(
-            getDatefromString(character1.dateOfBirth).getTime(),
-            getDatefromString(character2.dateOfBirth).getTime(),
-            currentAge,
-          ),
-        ),
+        }),
     );
   }, [currentSearch, currentWork, currentGender, currentAge]);
 

@@ -27,3 +27,8 @@ export function getDatefromString(str) {
   const [day, month, year] = str.split('-');
   return new Date(year, month, day);
 }
+
+export function getCharacterAge(str) {
+  const ageDate = new Date(Date.now() - getDatefromString(str));
+  return ageDate.getFullYear() - 1969;
+}
