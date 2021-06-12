@@ -13,6 +13,9 @@ export default function AllFilters({ setCards, characters }) {
   const [currentGender, setCurrentGender] = useState('all');
   const [currentAge, setCurrentAge] = useState('');
 
+  const MAX_DATE_VALUE = 8640000000000000;
+  const AGE_FLAG = 'Youngest first';
+
   useEffect(() => {
     setCards(characters);
   }, [characters]);
@@ -22,31 +25,16 @@ export default function AllFilters({ setCards, characters }) {
       filterCharactersByWork(characters, currentWork)
         .filter(item => item.name.toLowerCase().startsWith(currentSearch))
         .sort((character1, character2) => {
-          let dateOfBirth1 = character1.dateOfBirth;
-          let dateOfBirth2 = character2.dateOfBirth;
-
-          if (currentAge === 'Youngest first') {
-            if (!dateOfBirth1) {
-              dateOfBirth1 = -8640000000000000; // min Day value
-            }
-
-            if (!dateOfBirth2) {
-              dateOfBirth2 = -8640000000000000; // min Day value
-            }
-          } else if (currentAge === 'Oldest first') {
-            if (!dateOfBirth1) {
-              dateOfBirth1 = 8640000000000000; // max Day value
-            }
-
-            if (!dateOfBirth1) {
-              dateOfBirth2 = 8640000000000000; // max Day value
-            }
-          }
+          const [FisrtDateOfBirth, SecondDateOfBirth] = [
+            character1.dateOfBirth,
+            character2.dateOfBirth,
+          ].map(dateOfBirth => dateOfBirth || MAX_DATE_VALUE * (currentAge === AGE_FLAG ? -1 : 1));
 
           return compareByAge(
-            getDatefromValue(dateOfBirth1),
-            getDatefromValue(dateOfBirth2),
+            getDatefromValue(FisrtDateOfBirth),
+            getDatefromValue(SecondDateOfBirth),
             currentAge,
+            AGE_FLAG,
           );
         })
         .filter(item => {
